@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TomaFisica", "TomaFisica\TomaFisica.vbproj", "{43292AAB-7CEC-4B64-AF5B-2EEB51B3FD6A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C293DB65-B30C-4BD4-A30F-5351ECD3E8BC}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43292AAB-7CEC-4B64-AF5B-2EEB51B3FD6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43292AAB-7CEC-4B64-AF5B-2EEB51B3FD6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43292AAB-7CEC-4B64-AF5B-2EEB51B3FD6A}.Debug|x86.ActiveCfg = Debug|x86
+		{43292AAB-7CEC-4B64-AF5B-2EEB51B3FD6A}.Debug|x86.Build.0 = Debug|x86
+		{43292AAB-7CEC-4B64-AF5B-2EEB51B3FD6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43292AAB-7CEC-4B64-AF5B-2EEB51B3FD6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43292AAB-7CEC-4B64-AF5B-2EEB51B3FD6A}.Release|x86.ActiveCfg = Release|x86
+		{43292AAB-7CEC-4B64-AF5B-2EEB51B3FD6A}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {870A4E0F-DBBF-417E-B244-735B26DB7608}
+	EndGlobalSection
+EndGlobal

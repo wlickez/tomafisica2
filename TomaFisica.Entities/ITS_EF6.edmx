@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ITSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FISICO DETALLE">
+          <Key>
+            <PropertyRef Name="Numero" />
+            <PropertyRef Name="Producto" />
+            <PropertyRef Name="Tipo" />
+            <PropertyRef Name="Empresa" />
+            <PropertyRef Name="posicion fisica" />
+            <PropertyRef Name="bodega" />
+          </Key>
+          <Property Name="Numero" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Producto" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="Empresa" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="Cantidad" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+          <Property Name="Costo" Type="decimal" Precision="18" Scale="7" />
+          <Property Name="Precio" Type="decimal" Precision="18" Scale="7" />
+          <Property Name="Medida" Type="int" />
+          <Property Name="Descripcion Medida" Type="varchar" MaxLength="50" />
+          <Property Name="Cantidad Medida" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="Lote" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fecha Vencimiento" Type="datetime" />
+          <Property Name="posicion fisica" Type="int" Nullable="false" />
+          <Property Name="bodega" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="date" />
+        </EntityType>
+        <EntityType Name="FISICO MAESTRO">
+          <Key>
+            <PropertyRef Name="Numero" />
+            <PropertyRef Name="Tipo" />
+            <PropertyRef Name="Empresa" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Bodega" />
+          </Key>
+          <Property Name="Numero" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Tipo" Type="int" Nullable="false" />
+          <Property Name="Empresa" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="200" />
+          <Property Name="Estatus" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fecha Anulacion" Type="date" />
+          <Property Name="Sucursal" Type="int" />
+          <Property Name="Bodega" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ITSModelStoreContainer">
+          <EntitySet Name="FISICO DETALLE" EntityType="Self.FISICO DETALLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FISICO MAESTRO" EntityType="Self.FISICO MAESTRO" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ITSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FISICO_DETALLE">
+          <Key>
+            <PropertyRef Name="Numero" />
+            <PropertyRef Name="Producto" />
+            <PropertyRef Name="Tipo" />
+            <PropertyRef Name="Empresa" />
+            <PropertyRef Name="posicion_fisica" />
+            <PropertyRef Name="bodega" />
+          </Key>
+          <Property Name="Numero" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Producto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="Empresa" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="5" Nullable="false" />
+          <Property Name="Costo" Type="Decimal" Precision="18" Scale="7" />
+          <Property Name="Precio" Type="Decimal" Precision="18" Scale="7" />
+          <Property Name="Medida" Type="Int32" />
+          <Property Name="Descripcion_Medida" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad_Medida" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="Lote" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_Vencimiento" Type="DateTime" Precision="3" />
+          <Property Name="posicion_fisica" Type="Int32" Nullable="false" />
+          <Property Name="bodega" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="FISICO_MAESTRO">
+          <Key>
+            <PropertyRef Name="Numero" />
+            <PropertyRef Name="Tipo" />
+            <PropertyRef Name="Empresa" />
+            <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Bodega" />
+          </Key>
+          <Property Name="Numero" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <Property Name="Empresa" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Estatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_Anulacion" Type="DateTime" Precision="0" />
+          <Property Name="Sucursal" Type="Int32" />
+          <Property Name="Bodega" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ITSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FISICO_DETALLE" EntityType="Self.FISICO_DETALLE" />
+          <EntitySet Name="FISICO_MAESTRO" EntityType="Self.FISICO_MAESTRO" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ITSModelStoreContainer" CdmEntityContainer="ITSEntities">
+          <EntitySetMapping Name="FISICO_DETALLE">
+            <EntityTypeMapping TypeName="ITSModel.FISICO_DETALLE">
+              <MappingFragment StoreEntitySet="FISICO DETALLE">
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Costo" ColumnName="Costo" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Medida" ColumnName="Medida" />
+                <ScalarProperty Name="Descripcion_Medida" ColumnName="Descripcion Medida" />
+                <ScalarProperty Name="Cantidad_Medida" ColumnName="Cantidad Medida" />
+                <ScalarProperty Name="Lote" ColumnName="Lote" />
+                <ScalarProperty Name="Fecha_Vencimiento" ColumnName="Fecha Vencimiento" />
+                <ScalarProperty Name="posicion_fisica" ColumnName="posicion fisica" />
+                <ScalarProperty Name="bodega" ColumnName="bodega" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FISICO_MAESTRO">
+            <EntityTypeMapping TypeName="ITSModel.FISICO_MAESTRO">
+              <MappingFragment StoreEntitySet="FISICO MAESTRO">
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Fecha_Anulacion" ColumnName="Fecha Anulacion" />
+                <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+                <ScalarProperty Name="Bodega" ColumnName="Bodega" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
