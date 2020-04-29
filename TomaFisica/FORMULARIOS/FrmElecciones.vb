@@ -1,7 +1,12 @@
 ﻿Public Class FrmElecciones
     Public flogin As Form
     Private Sub FrmElecciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Cls_FuncionesPrincipales.DevolverVersion(Me)
+        Try
+            Cls_FuncionesPrincipales.DevolverVersion(Me)
+        Catch ex As Exception
+            MessageBox.Show(Me, ex.Message, "Error al cargar")
+        End Try
+
     End Sub
 
     Private Sub BtnTomasFisicas_Click(sender As Object, e As EventArgs) Handles BtnTomasFisicas.Click

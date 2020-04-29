@@ -68,8 +68,12 @@
         ConsultaCostos(TxtCodigoProducto.Text)
     End Sub
     Private Sub FrmCostos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Cls_FuncionesPrincipales.DevolverVersion(Me)
-        Me.DgvCostos.ContextMenuStrip = Me.cmsMenuDgv
+        Try
+            Cls_FuncionesPrincipales.DevolverVersion(Me)
+            Me.DgvCostos.ContextMenuStrip = Me.cmsMenuDgv
+        Catch ex As Exception
+            MessageBox.Show(Me, ex.Message, "Error al cargar", MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+        End Try
     End Sub
     Private Sub FrmPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         flogin.Show()

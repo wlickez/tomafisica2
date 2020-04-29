@@ -1,4 +1,6 @@
-﻿Public Class Cls_FuncionesPrincipales
+﻿Imports System.IO
+
+Public Class Cls_FuncionesPrincipales
     Public Shared Sub KeyDownFormulariosFacturacion(_e As KeyEventArgs, _formulario As Form, _txtCodigoProducto As TextBox, _txtNombreProducto As TextBox, _sucursal As Integer, _dgv As DataGridView)
         If _e.KeyCode = Keys.Escape Then
             _formulario.Dispose()
@@ -44,7 +46,14 @@
 
         With _frmInicial
             .Text = _frmInicial.Text & " /" & g_usuario & " v." & My.Application.Info.Version.ToString
-            .Icon = New Icon("toma_fisica.ico")
+            Dim directorio = My.Computer.FileSystem.CurrentDirectory
+            'If Directory.Exists(directorio) Then
+            '    MsgBox("existe")
+            'Else
+            '    MsgBox("no eixste")
+            'End If
+            'MsgBox(directorio)
+            .Icon = New Icon(directorio & "\icono.ico")
             .StartPosition = FormStartPosition.CenterScreen
             .MinimizeBox = False
             .MaximizeBox = False

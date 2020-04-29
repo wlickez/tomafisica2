@@ -3,8 +3,8 @@
     Public p_txtCodigoProducto As TextBox
     Public p_txtNombreProducto As TextBox
     Private Sub FrmBusquedaProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Cls_FuncionesPrincipales.DevolverVersion(Me)
         Try
+            Cls_FuncionesPrincipales.DevolverVersion(Me)
             TxtBusquedaProducto.Focus()
         Catch ex As Exception
             MessageBox.Show(ex.Message)

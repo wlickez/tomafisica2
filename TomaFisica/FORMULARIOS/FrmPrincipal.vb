@@ -29,6 +29,7 @@
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+
         End Try
     End Sub
     Private Sub LoginToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoginToolStripMenuItem.Click
@@ -196,8 +197,10 @@
             BuscarPosicion()
         End If
     End Sub
-
-    Private Sub TlpDatosDetalle_Paint(sender As Object, e As PaintEventArgs) Handles TlpDatosDetalle.Paint
-
+    Private Sub DiferenciasToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles DiferenciasToolStripMenuItem1.Click
+        Dim f As New FrmDiferencias
+        f.p_sucursal = CInt(CmbBodegas.SelectedValue)
+        f.StartPosition = FormStartPosition.CenterScreen
+        f.ShowDialog()
     End Sub
 End Class

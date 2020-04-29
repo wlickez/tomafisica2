@@ -150,6 +150,12 @@
     <Compile Include="FORMULARIOS\FrmCostos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FORMULARIOS\FrmDiferencias.Designer.vb">
+      <DependentUpon>FrmDiferencias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORMULARIOS\FrmDiferencias.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FORMULARIOS\FrmElecciones.Designer.vb">
       <DependentUpon>FrmElecciones.vb</DependentUpon>
     </Compile>
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\FrmCostos.resx">
       <DependentUpon>FrmCostos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMULARIOS\FrmDiferencias.resx">
+      <DependentUpon>FrmDiferencias.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\FrmElecciones.resx">
       <DependentUpon>FrmElecciones.vb</DependentUpon>

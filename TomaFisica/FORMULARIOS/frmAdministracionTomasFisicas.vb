@@ -1,12 +1,16 @@
 ﻿Public Class FrmAdministracionTomasFisicas
     Dim l_numero As Integer
     Private Sub FrmAdministracionTomasFisicas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Cls_FuncionesPrincipales.DevolverVersion(Me)
-        Me.BODEGATableAdapter.Fill(Me.VISTAS.BODEGA, g_empresa)
-        Me.USUARIOTableAdapter.Fill(Me.VISTAS.USUARIO)
-        CmbSucursal.SelectedIndex = 0
-        Me.DgvTomasFisicas.ContextMenuStrip = Me.menucontextoDGV
-        ConsultarTomaFisicoMaestro(sender, e)
+        Try
+            Cls_FuncionesPrincipales.DevolverVersion(Me)
+            Me.BODEGATableAdapter.Fill(Me.VISTAS.BODEGA, g_empresa)
+            Me.USUARIOTableAdapter.Fill(Me.VISTAS.USUARIO)
+            CmbSucursal.SelectedIndex = 0
+            Me.DgvTomasFisicas.ContextMenuStrip = Me.menucontextoDGV
+            ConsultarTomaFisicoMaestro(sender, e)
+        Catch ex As Exception
+            MessageBox.Show(Me, ex.Message, "Error al cargar", MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
+        End Try
     End Sub
     Private Sub ConsultarTomaFisicoMaestro(sender As Object, e As EventArgs)
         Try
