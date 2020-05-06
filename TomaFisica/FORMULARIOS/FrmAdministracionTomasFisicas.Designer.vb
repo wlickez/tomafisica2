@@ -59,7 +59,7 @@ Partial Class FrmAdministracionTomasFisicas
         Me.CerradaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FISICO_MAESTROTableAdapter = New TomaFisica.VISTASTableAdapters.FISICO_MAESTROTableAdapter()
-        Me.BODEGATableAdapter = New TomaFisica.VISTASTableAdapters.BODEGATableAdapter()
+        Me.BODEGATableAdapter = New TomaFisica.VISTASTableAdapters.SUCURSALTableAdapter()
         Me.USUARIOTableAdapter = New TomaFisica.VISTASTableAdapters.USUARIOTableAdapter()
         Me.tlpDatos.SuspendLayout()
         CType(Me.USUARIOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -430,7 +430,7 @@ Partial Class FrmAdministracionTomasFisicas
     Friend WithEvents VISTAS As VISTAS
     Friend WithEvents FISICOMAESTROBindingSource As BindingSource
     Friend WithEvents FISICO_MAESTROTableAdapter As VISTASTableAdapters.FISICO_MAESTROTableAdapter
-    Friend WithEvents BODEGATableAdapter As VISTASTableAdapters.BODEGATableAdapter
+    Friend WithEvents BODEGATableAdapter As VISTASTableAdapters.SUCURSALTableAdapter
     Friend WithEvents USUARIOBindingSource As BindingSource
     Friend WithEvents USUARIOTableAdapter As VISTASTableAdapters.USUARIOTableAdapter
     Friend WithEvents NumeroDataGridViewTextBoxColumn As DataGridViewTextBoxColumn

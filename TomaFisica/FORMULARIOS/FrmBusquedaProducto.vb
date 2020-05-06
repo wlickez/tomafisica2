@@ -1,5 +1,5 @@
 ﻿Public Class FrmBusquedaProducto
-    Public p_sucursal As Integer
+    Public p_bodega As Integer
     Public p_txtCodigoProducto As TextBox
     Public p_txtNombreProducto As TextBox
     Private Sub FrmBusquedaProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -14,7 +14,7 @@
     Private Sub BtnConsultar_Click(sender As Object, e As EventArgs) Handles BtnConsultar.Click
         Try
             If TxtBusquedaProducto.Text <> "" Or TxtBusquedaProducto.Text <> Nothing Then
-                Me.CONSULTAR_PRODUCTOS_EXISTENCIASTableAdapter.CONSULTAREXISTENCIAS(Me.VISTAS.CONSULTAR_PRODUCTOS_EXISTENCIAS, g_empresa, p_sucursal, TxtBusquedaProducto.Text, "", 1)
+                Me.CONSULTAR_PRODUCTOS_EXISTENCIASTableAdapter.CONSULTAREXISTENCIAS(Me.VISTAS.CONSULTAR_PRODUCTOS_EXISTENCIAS, g_empresa, p_bodega, TxtBusquedaProducto.Text, "", 1)
                 If DgvDatosProducto.RowCount > 0 Then
                     DgvDatosProducto.Focus()
                 End If

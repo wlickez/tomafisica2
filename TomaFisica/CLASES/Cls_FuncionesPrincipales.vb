@@ -1,12 +1,12 @@
 ﻿Imports System.IO
 
 Public Class Cls_FuncionesPrincipales
-    Public Shared Sub KeyDownFormulariosFacturacion(_e As KeyEventArgs, _formulario As Form, _txtCodigoProducto As TextBox, _txtNombreProducto As TextBox, _sucursal As Integer, _dgv As DataGridView)
+    Public Shared Sub KeyDownFormulariosFacturacion(_e As KeyEventArgs, _formulario As Form, _txtCodigoProducto As TextBox, _txtNombreProducto As TextBox, _bodega As Integer, _dgv As DataGridView)
         If _e.KeyCode = Keys.Escape Then
             _formulario.Dispose()
         ElseIf _e.KeyCode = Keys.F3 Then
             Using f As New FrmBusquedaProducto
-                f.p_sucursal = _sucursal
+                f.p_bodega = _bodega
                 f.p_txtCodigoProducto = _txtCodigoProducto
                 f.p_txtNombreProducto = _txtNombreProducto
                 f.ShowDialog()
@@ -18,7 +18,7 @@ Public Class Cls_FuncionesPrincipales
     End Sub
     Public Shared Sub EnviarObjetosParaBusqueda(_txtCodigoProducto As TextBox, _txtNombreProducto As TextBox, _sucursal As Integer)
         Using f As New FrmBusquedaProducto
-            f.p_sucursal = _sucursal
+            f.p_bodega = _sucursal
             f.p_txtCodigoProducto = _txtCodigoProducto
             f.p_txtNombreProducto = _txtNombreProducto
             f.ShowDialog()

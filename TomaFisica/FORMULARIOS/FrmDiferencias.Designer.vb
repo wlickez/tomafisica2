@@ -31,10 +31,9 @@ Partial Class FrmDiferencias
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TxtFecha = New System.Windows.Forms.DateTimePicker()
         Me.BtnCargarDiferencias = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.CONSULTARDIFERENCIASTOMAFISICABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.VISTAS = New TomaFisica.VISTAS()
-        Me.CONSULTAR_DIFERENCIAS_TOMA_FISICATableAdapter = New TomaFisica.VISTASTableAdapters.CONSULTAR_DIFERENCIAS_TOMA_FISICATableAdapter()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.LblCantidadDiferencias = New System.Windows.Forms.Label()
+        Me.dgvDiferencias = New System.Windows.Forms.DataGridView()
         Me.ProductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NumeroDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TipoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -55,15 +54,20 @@ Partial Class FrmDiferencias
         Me.IngresoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EgresoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SaldoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CONSULTARDIFERENCIASTOMAFISICABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.VISTAS = New TomaFisica.VISTAS()
+        Me.CONSULTAR_DIFERENCIAS_TOMA_FISICATableAdapter = New TomaFisica.VISTASTableAdapters.CONSULTAR_DIFERENCIAS_TOMA_FISICATableAdapter()
+        Me.BtnExcel = New System.Windows.Forms.Button()
+        Me.BtnConvertToList = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvDiferencias, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONSULTARDIFERENCIASTOMAFISICABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VISTAS, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
         '
-        Me.TableLayoutPanel1.ColumnCount = 7
+        Me.TableLayoutPanel1.ColumnCount = 9
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
@@ -71,6 +75,8 @@ Partial Class FrmDiferencias
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Label2, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.TxtNumeroEntrada, 1, 0)
@@ -78,11 +84,13 @@ Partial Class FrmDiferencias
         Me.TableLayoutPanel1.Controls.Add(Me.Label3, 4, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.TxtFecha, 5, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.BtnCargarDiferencias, 6, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label4, 7, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.LblCantidadDiferencias, 8, 0)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(12, 12)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(592, 31)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(819, 31)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'Label2
@@ -143,30 +151,33 @@ Partial Class FrmDiferencias
         Me.BtnCargarDiferencias.Text = "&Cargar"
         Me.BtnCargarDiferencias.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'Label4
         '
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ProductoDataGridViewTextBoxColumn, Me.NumeroDataGridViewTextBoxColumn, Me.TipoDataGridViewTextBoxColumn, Me.EmpresaDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn, Me.CantidadDataGridViewTextBoxColumn, Me.CostoDataGridViewTextBoxColumn, Me.PrecioDataGridViewTextBoxColumn, Me.MedidaDataGridViewTextBoxColumn, Me.DescripcionMedidaDataGridViewTextBoxColumn, Me.CantidadMedidaDataGridViewTextBoxColumn, Me.LoteDataGridViewTextBoxColumn, Me.FechaVencimientoDataGridViewTextBoxColumn, Me.RevisadoDataGridViewTextBoxColumn, Me.SucursalDataGridViewTextBoxColumn, Me.BodegaDataGridViewTextBoxColumn, Me.Producto1DataGridViewTextBoxColumn, Me.IngresoDataGridViewTextBoxColumn, Me.EgresoDataGridViewTextBoxColumn, Me.SaldoDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.CONSULTARDIFERENCIASTOMAFISICABindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 49)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(1059, 486)
-        Me.DataGridView1.TabIndex = 1
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(579, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(88, 13)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "Cant. Diferencias"
         '
-        'CONSULTARDIFERENCIASTOMAFISICABindingSource
+        'LblCantidadDiferencias
         '
-        Me.CONSULTARDIFERENCIASTOMAFISICABindingSource.DataMember = "CONSULTAR DIFERENCIAS TOMA FISICA"
-        Me.CONSULTARDIFERENCIASTOMAFISICABindingSource.DataSource = Me.VISTAS
+        Me.LblCantidadDiferencias.AutoSize = True
+        Me.LblCantidadDiferencias.Location = New System.Drawing.Point(680, 0)
+        Me.LblCantidadDiferencias.Name = "LblCantidadDiferencias"
+        Me.LblCantidadDiferencias.Size = New System.Drawing.Size(0, 13)
+        Me.LblCantidadDiferencias.TabIndex = 9
         '
-        'VISTAS
+        'dgvDiferencias
         '
-        Me.VISTAS.DataSetName = "VISTAS"
-        Me.VISTAS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'CONSULTAR_DIFERENCIAS_TOMA_FISICATableAdapter
-        '
-        Me.CONSULTAR_DIFERENCIAS_TOMA_FISICATableAdapter.ClearBeforeFill = True
+        Me.dgvDiferencias.AutoGenerateColumns = False
+        Me.dgvDiferencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvDiferencias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ProductoDataGridViewTextBoxColumn, Me.NumeroDataGridViewTextBoxColumn, Me.TipoDataGridViewTextBoxColumn, Me.EmpresaDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn, Me.CantidadDataGridViewTextBoxColumn, Me.CostoDataGridViewTextBoxColumn, Me.PrecioDataGridViewTextBoxColumn, Me.MedidaDataGridViewTextBoxColumn, Me.DescripcionMedidaDataGridViewTextBoxColumn, Me.CantidadMedidaDataGridViewTextBoxColumn, Me.LoteDataGridViewTextBoxColumn, Me.FechaVencimientoDataGridViewTextBoxColumn, Me.RevisadoDataGridViewTextBoxColumn, Me.SucursalDataGridViewTextBoxColumn, Me.BodegaDataGridViewTextBoxColumn, Me.Producto1DataGridViewTextBoxColumn, Me.IngresoDataGridViewTextBoxColumn, Me.EgresoDataGridViewTextBoxColumn, Me.SaldoDataGridViewTextBoxColumn})
+        Me.dgvDiferencias.DataSource = Me.CONSULTARDIFERENCIASTOMAFISICABindingSource
+        Me.dgvDiferencias.Location = New System.Drawing.Point(12, 49)
+        Me.dgvDiferencias.Name = "dgvDiferencias"
+        Me.dgvDiferencias.Size = New System.Drawing.Size(1059, 486)
+        Me.dgvDiferencias.TabIndex = 1
         '
         'ProductoDataGridViewTextBoxColumn
         '
@@ -323,18 +334,52 @@ Partial Class FrmDiferencias
         Me.SaldoDataGridViewTextBoxColumn.Name = "SaldoDataGridViewTextBoxColumn"
         Me.SaldoDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'CONSULTARDIFERENCIASTOMAFISICABindingSource
+        '
+        Me.CONSULTARDIFERENCIASTOMAFISICABindingSource.DataMember = "CONSULTAR DIFERENCIAS TOMA FISICA"
+        Me.CONSULTARDIFERENCIASTOMAFISICABindingSource.DataSource = Me.VISTAS
+        '
+        'VISTAS
+        '
+        Me.VISTAS.DataSetName = "VISTAS"
+        Me.VISTAS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CONSULTAR_DIFERENCIAS_TOMA_FISICATableAdapter
+        '
+        Me.CONSULTAR_DIFERENCIAS_TOMA_FISICATableAdapter.ClearBeforeFill = True
+        '
+        'BtnExcel
+        '
+        Me.BtnExcel.Location = New System.Drawing.Point(855, 13)
+        Me.BtnExcel.Name = "BtnExcel"
+        Me.BtnExcel.Size = New System.Drawing.Size(75, 23)
+        Me.BtnExcel.TabIndex = 2
+        Me.BtnExcel.Text = "Excel"
+        Me.BtnExcel.UseVisualStyleBackColor = True
+        '
+        'BtnConvertToList
+        '
+        Me.BtnConvertToList.Location = New System.Drawing.Point(936, 13)
+        Me.BtnConvertToList.Name = "BtnConvertToList"
+        Me.BtnConvertToList.Size = New System.Drawing.Size(75, 23)
+        Me.BtnConvertToList.TabIndex = 3
+        Me.BtnConvertToList.Text = "Converti a Lista"
+        Me.BtnConvertToList.UseVisualStyleBackColor = True
+        '
         'FrmDiferencias
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1102, 557)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.BtnConvertToList)
+        Me.Controls.Add(Me.BtnExcel)
+        Me.Controls.Add(Me.dgvDiferencias)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Name = "FrmDiferencias"
         Me.Text = "Diferencias"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvDiferencias, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONSULTARDIFERENCIASTOMAFISICABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VISTAS, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -348,7 +393,7 @@ Partial Class FrmDiferencias
     Friend WithEvents Label3 As Label
     Friend WithEvents TxtFecha As DateTimePicker
     Friend WithEvents BtnCargarDiferencias As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvDiferencias As DataGridView
     Friend WithEvents Label2 As Label
     Friend WithEvents CONSULTARDIFERENCIASTOMAFISICABindingSource As BindingSource
     Friend WithEvents VISTAS As VISTAS
@@ -373,4 +418,8 @@ Partial Class FrmDiferencias
     Friend WithEvents IngresoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EgresoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents SaldoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Label4 As Label
+    Friend WithEvents LblCantidadDiferencias As Label
+    Friend WithEvents BtnExcel As Button
+    Friend WithEvents BtnConvertToList As Button
 End Class

@@ -6,19 +6,20 @@
             Cls_FuncionesPrincipales.DevolverVersion(Me)
             TxtTop.Value = 10
             TxtFechaTomaFisicaReferencia.Text = g_fechaTomaFisica
-            Me.BODEGATableAdapter.Fill(Me.VISTAS.BODEGA, g_empresa)
             TxtCodigoAlmacen.Text = g_sucursal
             TxtNombreAlmacen.Text = g_nombreSucursal
             TxtNumeroToma.Text = g_numeroTomaFisica
             TxtObservacionesTomaFisica.Text = g_observacionesTomaFisica
+            CargarSucursales()
             's_cargarDatosFisicoDetalle(txtNumeroToma.Text, g_usuario, g_sucursal)
             Me.DgvTomaFisica.ContextMenuStrip = Me.menucontextoDGV
-            CmbBodegas.SelectedValue = g_sucursal
-            Me.FISICO_MAESTROTableAdapter.Fill(Me.VISTAS.FISICO_MAESTRO, g_empresa, CmbBodegas.SelectedValue, g_usuario, g_fechaTomaFisica)
-            CargarDatosFisicoDetalle(CmbTomas.SelectedValue, g_usuario, CmbBodegas.SelectedValue, TxtTop.Value)
+            CmbSucursal.SelectedValue = g_sucursal
+            CargarTomasFisicas()
+            'Me.FISICO_MAESTROTableAdapter.Fill(Me.VISTAS.FISICO_MAESTRO, g_empresa, CmbSucursal.SelectedValue, g_usuario, g_fechaTomaFisica)
+            CargarDatosFisicoDetalle(CmbTomas.SelectedValue, g_usuario, CmbSucursal.SelectedValue, TxtTop.Value, CInt(CmbBodega.SelectedValue))
             If (g_usuario.ToLower = "wlickez" Or g_usuario.ToLower = "dtrujillo" Or g_usuario.ToLower = "dchen") Then
-                CmbBodegas.Enabled = True
-                CmbBodegas.SelectedValue = 1
+                CmbSucursal.Enabled = True
+                CmbSucursal.SelectedValue = 1
                 TxtBuscarPosicion.Visible = True
                 BtnBuscarPosicion.Visible = True
                 For Each t As ToolStripMenuItem In Me.MenuStripPrincipal.Items
@@ -50,7 +51,7 @@
         Using f As New FrmImpresionVarias
             f.p_numero = CInt(CmbTomas.SelectedValue)
             f.p_usuario = g_usuario
-            f.p_bodega = CInt(CmbBodegas.SelectedValue)
+            f.p_bodega = CInt(CmbSucursal.SelectedValue)
             f.StartPosition = FormStartPosition.CenterScreen
             f.ShowDialog()
         End Using
@@ -59,14 +60,14 @@
         Using f As New frmReporte
             f.p_numero = CInt(CmbTomas.SelectedValue)
             f.p_usuario = g_usuario
-            f.p_bodega = CInt(CmbBodegas.SelectedValue)
+            f.p_bodega = CInt(CmbBodega.SelectedValue)
             f.StartPosition = FormStartPosition.CenterScreen
             f.ShowDialog()
         End Using
     End Sub
 
     Private Sub BtnAgregar_Click(sender As Object, e As EventArgs) Handles BtnAgregar.Click
-        Cls_FuncionesPrincipales.EnviarObjetosParaBusqueda(TxtCodigoProducto, TxtNombreProducto, CInt(CmbBodegas.SelectedValue))
+        Cls_FuncionesPrincipales.EnviarObjetosParaBusqueda(TxtCodigoProducto, TxtNombreProducto, CInt(CmbSucursal.SelectedValue))
         If TxtCodigoProducto.Text.Length > 0 Then
             TxtFisico.Focus()
         End If
@@ -83,9 +84,9 @@
             'dgvTomaFisica.Rows(cantFilas).Cells(1).Value = txtNombreProducto.Text
             'dgvTomaFisica.Rows(cantFilas).Cells(2).Value = txtFisico.Text
             'If cls_Data.f_crudTomaFisicaDetalle(CInt(txtNumeroToma.Text), txtCodigoProducto.Text, 1, 1, CInt(txtFisico.Text), CInt(txtCodigoAlmacen.Text), 1, 0) Then
-            If Cls_Data.CrudTomaFisicaDetalle(CInt(CmbTomas.SelectedValue), TxtCodigoProducto.Text, 1, g_empresa, CInt(TxtFisico.Text), CInt(CmbBodegas.SelectedValue), 1, 0, g_fechaTomaFisica) Then
+            If Cls_Data.CrudTomaFisicaDetalle(CInt(CmbTomas.SelectedValue), TxtCodigoProducto.Text, 1, g_empresa, CInt(TxtFisico.Text), CInt(CmbSucursal.SelectedValue), 1, 0, g_fechaTomaFisica, CInt(CmbBodega.SelectedValue)) Then
                 Cls_FuncionesPrincipales.VaciarValoresNuevaFacturaCredito(TlpDatosDetalle)
-                CargarDatosFisicoDetalle(CInt(CmbTomas.SelectedValue), g_usuario, CInt(CmbBodegas.SelectedValue), TxtTop.Value)
+                CargarDatosFisicoDetalle(CInt(CmbTomas.SelectedValue), g_usuario, CInt(CmbSucursal.SelectedValue), TxtTop.Value, CInt(CmbBodega.SelectedValue))
                 Me.TxtCodigoProducto.Focus()
             End If
         Else
@@ -98,7 +99,7 @@
             If TxtCodigoProducto.Text.Length <= 6 Then
                 MessageBox.Show("Ingrese un [Código de Etiqueta Amarilla] o [Código Barra] ", "Campo vacio", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
-                If Cls_Data.ConsultarProducto(g_empresa, CInt(CmbBodegas.SelectedValue), "", TxtCodigoProducto.Text, TxtCodigoProducto, TxtNombreProducto) Then
+                If Cls_Data.ConsultarProducto(g_empresa, CInt(CmbBodega.SelectedValue), "", TxtCodigoProducto.Text, TxtCodigoProducto, TxtNombreProducto) Then
                     TxtFisico.Focus()
                 Else
                     MessageBox.Show("Ingrese un [Código de Etiqueta amarilla] o [CódigoBarra] correcto", "Código incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -106,12 +107,17 @@
             End If
         End If
     End Sub
-    Private Sub CargarDatosFisicoDetalle(_numeroToma As Integer, _usuario As String, _sucursal As Integer, _top As Integer)
+    Private Sub CargarDatosFisicoDetalle(_numeroToma As Integer, _usuario As String, _sucursal As Integer, _top As Integer, _bodega As Integer)
         Try
-            Me.CONSULTAR_TOMA_FISICATableAdapter.Fill(Me.VISTAS.CONSULTAR_TOMA_FISICA, g_empresa, _numeroToma, _usuario, _sucursal, _top, 2, g_fechaTomaFisica)
+            Me.CONSULTAR_TOMA_FISICA2TableAdapter.Fill(Me.VISTAS.CONSULTAR_TOMA_FISICA2, g_empresa, _numeroToma, _usuario, _bodega, _top, 2, g_fechaTomaFisica, _sucursal)
         Catch ex As System.Exception
             System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
+        'Try
+        '    Me.CONSULTAR_TOMA_FISICATableAdapter.Fill(Me.VISTAS.CONSULTAR_TOMA_FISICA, g_empresa, _numeroToma, _usuario, _sucursal, _top, 2, g_fechaTomaFisica)
+        'Catch ex As System.Exception
+        '    System.Windows.Forms.MessageBox.Show(ex.Message)
+        'End Try
     End Sub
     Private Sub TxtCodigoProducto_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtCodigoProducto.KeyPress
         Cls_FuncionesPrincipales.DigitarCantidadesEnteras(e)
@@ -142,7 +148,7 @@
         End Try
     End Sub
     Private Sub TxtTop_ValueChanged(sender As Object, e As EventArgs) Handles TxtTop.ValueChanged
-        CargarDatosFisicoDetalle(CmbTomas.SelectedValue, g_usuario, CmbBodegas.SelectedValue, TxtTop.Value)
+        CargarDatosFisicoDetalle(CmbTomas.SelectedValue, g_usuario, CmbSucursal.SelectedValue, TxtTop.Value, CInt(CmbBodega.SelectedValue))
     End Sub
     Private Sub FrmPrincipal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         flogin.Show()
@@ -159,8 +165,8 @@
 
                 Dim fila As DataGridViewRow = DgvTomaFisica.CurrentRow
                 'If cls_Data.f_crudTomaFisicaDetalle(CInt(fila.Cells(7).Value), fila.Cells(8).Value, 1, 1, valor, CInt(fila.Cells(5).Value), 2, CInt(fila.Cells(12).Value)) Then
-                If Cls_Data.CrudTomaFisicaDetalle(CInt(fila.Cells(7).Value), fila.Cells(8).Value, 1, g_empresa, valor, CInt(fila.Cells(5).Value), 2, CInt(fila.Cells(12).Value), g_fechaTomaFisica) Then
-                    CargarDatosFisicoDetalle(CInt(CmbTomas.SelectedValue), g_usuario, CInt(CmbBodegas.SelectedValue), TxtTop.Value)
+                If Cls_Data.CrudTomaFisicaDetalle(CInt(fila.Cells(7).Value), fila.Cells(8).Value, 1, g_empresa, valor, CInt(CmbSucursal.SelectedValue), 2, CInt(fila.Cells(12).Value), g_fechaTomaFisica, CInt(CmbBodega.SelectedValue)) Then
+                    CargarDatosFisicoDetalle(CInt(CmbTomas.SelectedValue), g_usuario, CInt(CmbSucursal.SelectedValue), TxtTop.Value, CInt(CmbBodega.SelectedValue))
                     Me.TxtCodigoProducto.Focus()
                 End If
 
@@ -173,22 +179,23 @@
     Private Sub EliminarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EliminarToolStripMenuItem.Click
         If DgvTomaFisica.Rows.Count > 0 Then
             Dim fila As DataGridViewRow = DgvTomaFisica.CurrentRow
-            If Cls_Data.CrudTomaFisicaDetalle(CInt(fila.Cells(7).Value), fila.Cells(8).Value, 1, g_empresa, 0, CInt(fila.Cells(5).Value), 3, CInt(fila.Cells(12).Value), g_fechaTomaFisica) Then
-                CargarDatosFisicoDetalle(CInt(CmbTomas.SelectedValue), g_usuario, CInt(CmbBodegas.SelectedValue), TxtTop.Value)
+            If Cls_Data.CrudTomaFisicaDetalle(CInt(fila.Cells(7).Value), fila.Cells(8).Value, 1, g_empresa, 0, CInt(CmbSucursal.SelectedValue), 3, CInt(fila.Cells(12).Value), g_fechaTomaFisica, CInt(CmbBodega.SelectedValue)) Then
+                CargarDatosFisicoDetalle(CInt(CmbTomas.SelectedValue), g_usuario, CInt(CmbSucursal.SelectedValue), TxtTop.Value, CInt(CmbBodega.SelectedValue))
                 Me.TxtCodigoProducto.Focus()
             End If
         End If
     End Sub
 
     Private Sub FrmPrincipal_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        Cls_FuncionesPrincipales.KeyDownFormulariosFacturacion(e, Me, TxtCodigoProducto, TxtNombreProducto, CInt(CmbBodegas.SelectedValue), DgvTomaFisica)
+        Cls_FuncionesPrincipales.KeyDownFormulariosFacturacion(e, Me, TxtCodigoProducto, TxtNombreProducto, CInt(CmbBodega.SelectedValue), DgvTomaFisica)
     End Sub
-    Private Sub CmbBodegas_SelectedValueChanged(sender As Object, e As EventArgs) Handles CmbBodegas.SelectedValueChanged
-        Me.FISICO_MAESTROTableAdapter.Fill(Me.VISTAS.FISICO_MAESTRO, g_empresa, CmbBodegas.SelectedValue, g_usuario, g_fechaTomaFisica)
-        TxtCodigoAlmacen.Text = CmbBodegas.SelectedValue
+    Private Sub CmbBodegas_SelectedValueChanged(sender As Object, e As EventArgs) Handles CmbSucursal.SelectedValueChanged
+        CargarBodegas()
+        Me.FISICO_MAESTROTableAdapter.Fill(Me.VISTAS.FISICO_MAESTRO, g_empresa, CmbSucursal.SelectedValue, g_usuario, g_fechaTomaFisica)
+        TxtCodigoAlmacen.Text = CmbSucursal.SelectedValue
     End Sub
     Private Sub CmbTomas_SelectedValueChanged(sender As Object, e As EventArgs) Handles CmbTomas.SelectedValueChanged
-        CargarDatosFisicoDetalle(CmbTomas.SelectedValue, g_usuario, CmbBodegas.SelectedValue, TxtTop.Value)
+        CargarDatosFisicoDetalle(CmbTomas.SelectedValue, g_usuario, CmbSucursal.SelectedValue, TxtTop.Value, CInt(CmbBodega.SelectedValue))
         TxtNumeroToma.Text = CmbTomas.SelectedValue
     End Sub
 
@@ -199,8 +206,36 @@
     End Sub
     Private Sub DiferenciasToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles DiferenciasToolStripMenuItem1.Click
         Dim f As New FrmDiferencias
-        f.p_sucursal = CInt(CmbBodegas.SelectedValue)
+        f.p_sucursal = CInt(CmbSucursal.SelectedValue)
         f.StartPosition = FormStartPosition.CenterScreen
         f.ShowDialog()
     End Sub
+    Private Sub CargarBodegas()
+        Try
+            Me.BODEGATableAdapter.Fill(Me.VISTAS.BODEGA, g_empresa, CInt(CmbSucursal.SelectedValue), g_bodega)
+            CmbBodega.SelectedValue = g_bodega
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub CargarSucursales()
+        Try
+            Me.SUCURSALTableAdapter.Fill(Me.VISTAS.SUCURSAL, g_empresa)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub CargarTomasFisicas()
+        Try
+            Me.FISICO_MAESTRO2TableAdapter.Fill(Me.VISTAS.FISICO_MAESTRO2, g_empresa, CInt(CmbBodega.SelectedValue), g_usuario, g_fechaTomaFisica, CInt(CmbSucursal.SelectedValue))
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+
 End Class

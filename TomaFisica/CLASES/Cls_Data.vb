@@ -55,7 +55,7 @@ Public Class Cls_Data
         Using conexionBD As New SqlConnection(My.Settings.MiCadenaConexion.ToString)
             Try
                 conexionBD.Open()
-                Dim cmd As New SqlCommand("select * FROM dbo.DATOS_USUARIO(@empresa, @usuario, @fecha)", conexionBD)
+                Dim cmd As New SqlCommand("select * FROM dbo.DATOS_USUARIO2(@empresa, @usuario, @fecha)", conexionBD)
                 With cmd
                     .CommandType = CommandType.Text
                     With .Parameters
@@ -75,6 +75,7 @@ Public Class Cls_Data
                         g_nombreSucursal = fila(3)
                         g_observacionesTomaFisica = fila(4)
                         g_fechaTomaFisica = fila(5)
+                        g_bodega = fila(6)
                         Return True
                     End If
                     Return False
@@ -210,6 +211,39 @@ Public Class Cls_Data
             Catch ex As Exception
                 tran.Rollback()
                 MessageBox.Show("Error al intentar insertar:" + ex.Message)
+                Return False
+            End Try
+        End Using
+    End Function
+    Public Shared Function CrudTomaFisicaDetalle(_numero As Integer, _codigoProducto As String, _tipo As Integer, _empresa As Integer, _cantidadFisica As Integer, _sucursal As Integer, _tipoop As Integer, _posicion As Integer, _fecha As Date, _bodega As Integer) As Boolean
+        Using conexion As New SqlConnection(My.Settings.MiCadenaConexion.ToString)
+            conexion.Open()
+            Dim tran As SqlTransaction
+            Dim cmd As New SqlCommand("[CRUD DETALLE TOMA FISICA2]", conexion)
+            cmd.CommandType = CommandType.StoredProcedure
+            tran = conexion.BeginTransaction(IsolationLevel.Serializable)
+            Try
+                With cmd
+                    .Transaction = tran
+                    With .Parameters
+                        .AddWithValue("@numero", _numero)
+                        .AddWithValue("@producto", _codigoProducto)
+                        .AddWithValue("@tipo", _tipo)
+                        .AddWithValue("@empresa", _empresa)
+                        .AddWithValue("@cantidad", _cantidadFisica)
+                        .AddWithValue("@sucursal", _sucursal)
+                        .AddWithValue("@tipoop", _tipoop) '1 = insertar
+                        .AddWithValue("@posicion", _posicion) 'valor default, en el procedimiento lo calcula, si opcion 1
+                        .AddWithValue("@fecha", _fecha)
+                        .AddWithValue("@bodega", _bodega)
+                    End With
+                    .ExecuteNonQuery()
+                End With
+                tran.Commit()
+                Return True
+            Catch ex As Exception
+                tran.Rollback()
+                MessageBox.Show("Error al intentar insertar: " + ex.Message)
                 Return False
             End Try
         End Using

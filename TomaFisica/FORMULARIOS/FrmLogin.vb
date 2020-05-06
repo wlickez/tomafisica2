@@ -59,4 +59,26 @@
     Private Sub TxtFechaTomaFisica_Enter(sender As Object, e As EventArgs) Handles TxtFechaTomaFisica.Enter
         TxtFechaTomaFisica.SelectAll()
     End Sub
+
+
+    Private Sub TxtFechaTomaFisica_Leave(sender As Object, e As EventArgs) Handles TxtFechaTomaFisica.Leave
+        Try
+            Me.FISICO_POR_USUARIOTableAdapter.Fill(Me.VISTAS.FISICO_POR_USUARIO, TxtUsuario.Text, TxtFechaTomaFisica.Text)
+            SeleccionarSucursal()
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub CmbSucursales_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbSucursales.SelectedIndexChanged
+        SeleccionarSucursal()
+    End Sub
+
+    Private Sub SeleccionarSucursal()
+        Try
+            Me.BODEGA_POR_SUCURSALTableAdapter.Fill(Me.VISTAS.BODEGA_POR_SUCURSAL, g_empresa, CInt(CmbSucursales.SelectedValue))
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 End Class

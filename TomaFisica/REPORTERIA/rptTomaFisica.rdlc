@@ -1449,11 +1449,11 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>VISTAS</rd:DataSetName>
-        <rd:SchemaPath>\\SERVIDOR_NOD\Empresa\wlickez\Documents\Visual Studio 2015\Projects\TOMAFISICA\TOMAFISICA\DATA\VISTAS.xsd</rd:SchemaPath>
-        <rd:TableName>CONSULTAR TOMA FISICA</rd:TableName>
+        <rd:SchemaPath>\\server01\Uso general\TomaFisicaV6\TomaFisica\DATA\VISTAS.xsd</rd:SchemaPath>
+        <rd:TableName>CONSULTAR TOMA FISICA2</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod />
-        <rd:TableAdapterName>CONSULTAR_TOMA_FISICATableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>CONSULTAR_TOMA_FISICA2TableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

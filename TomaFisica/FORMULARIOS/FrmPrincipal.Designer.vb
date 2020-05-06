@@ -30,38 +30,31 @@ Partial Class FrmPrincipal
         Me.TxtBuscarPosicion = New System.Windows.Forms.TextBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.DgvTomaFisica = New System.Windows.Forms.DataGridView()
-        Me.FechaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ObservacionesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EstatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UsuarioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaAnulacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BodegaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DBodegaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NumeroDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CantidadDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrecioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PosicionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CONSULTARTOMAFISICABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CONSULTARTOMAFISICA2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VISTAS = New TomaFisica.VISTAS()
         Me.BtnAgregar = New System.Windows.Forms.Button()
         Me.TxtCodigoProducto = New System.Windows.Forms.TextBox()
+        Me.CONSULTARTOMAFISICABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.BtnReporte = New System.Windows.Forms.Button()
-        Me.CmbBodegas = New System.Windows.Forms.ComboBox()
-        Me.BODEGABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CmbSucursal = New System.Windows.Forms.ComboBox()
+        Me.SUCURSALBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TxtNombreAlmacen = New System.Windows.Forms.TextBox()
         Me.TxtCodigoAlmacen = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TxtNumeroToma = New System.Windows.Forms.TextBox()
         Me.CmbTomas = New System.Windows.Forms.ComboBox()
-        Me.FISICOMAESTROBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FISICOMAESTRO2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TxtObservacionesTomaFisica = New System.Windows.Forms.TextBox()
         Me.BtnBuscarPosicion = New System.Windows.Forms.Button()
         Me.TxtFechaTomaFisicaReferencia = New System.Windows.Forms.MaskedTextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.CmbBodega = New System.Windows.Forms.ComboBox()
+        Me.BODEGABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FISICOMAESTROBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BODEGAPORSUCURSALBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FECHASFISICOMAESTROBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -91,14 +84,35 @@ Partial Class FrmPrincipal
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FISICO_MAESTROTableAdapter = New TomaFisica.VISTASTableAdapters.FISICO_MAESTROTableAdapter()
         Me.CONSULTAR_TOMA_FISICATableAdapter = New TomaFisica.VISTASTableAdapters.CONSULTAR_TOMA_FISICATableAdapter()
-        Me.BODEGATableAdapter = New TomaFisica.VISTASTableAdapters.BODEGATableAdapter()
+        Me.SUCURSALTableAdapter = New TomaFisica.VISTASTableAdapters.SUCURSALTableAdapter()
         Me.FECHAS_FISICO_MAESTROTableAdapter = New TomaFisica.VISTASTableAdapters.FECHAS_FISICO_MAESTROTableAdapter()
+        Me.BODEGA_POR_SUCURSALTableAdapter = New TomaFisica.VISTASTableAdapters.BODEGA_POR_SUCURSALTableAdapter()
+        Me.BODEGATableAdapter = New TomaFisica.VISTASTableAdapters.BODEGATableAdapter()
+        Me.FISICO_MAESTRO2TableAdapter = New TomaFisica.VISTASTableAdapters.FISICO_MAESTRO2TableAdapter()
+        Me.CONSULTAR_TOMA_FISICA2TableAdapter = New TomaFisica.VISTASTableAdapters.CONSULTAR_TOMA_FISICA2TableAdapter()
+        Me.FechaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ObservacionesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UsuarioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaAnulacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BodegaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DBodegaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumeroDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CantidadDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrecioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PosicionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DgvTomaFisica, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CONSULTARTOMAFISICABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONSULTARTOMAFISICA2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VISTAS, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CONSULTARTOMAFISICABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.SUCURSALBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FISICOMAESTRO2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BODEGABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FISICOMAESTROBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BODEGAPORSUCURSALBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHASFISICOMAESTROBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStripPrincipal.SuspendLayout()
         Me.TlpDatosDetalle.SuspendLayout()
@@ -108,7 +122,7 @@ Partial Class FrmPrincipal
         '
         'TxtBuscarPosicion
         '
-        Me.TxtBuscarPosicion.Location = New System.Drawing.Point(623, 37)
+        Me.TxtBuscarPosicion.Location = New System.Drawing.Point(623, 64)
         Me.TxtBuscarPosicion.Name = "TxtBuscarPosicion"
         Me.TxtBuscarPosicion.Size = New System.Drawing.Size(26, 20)
         Me.TxtBuscarPosicion.TabIndex = 18
@@ -123,132 +137,18 @@ Partial Class FrmPrincipal
         Me.DgvTomaFisica.AutoGenerateColumns = False
         Me.DgvTomaFisica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvTomaFisica.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.FechaDataGridViewTextBoxColumn, Me.ObservacionesDataGridViewTextBoxColumn, Me.EstatusDataGridViewTextBoxColumn, Me.UsuarioDataGridViewTextBoxColumn, Me.FechaAnulacionDataGridViewTextBoxColumn, Me.BodegaDataGridViewTextBoxColumn, Me.DBodegaDataGridViewTextBoxColumn, Me.NumeroDataGridViewTextBoxColumn, Me.ProductoDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn, Me.CantidadDataGridViewTextBoxColumn, Me.PrecioDataGridViewTextBoxColumn, Me.PosicionDataGridViewTextBoxColumn})
-        Me.DgvTomaFisica.DataSource = Me.CONSULTARTOMAFISICABindingSource
-        Me.DgvTomaFisica.Location = New System.Drawing.Point(12, 168)
+        Me.DgvTomaFisica.DataSource = Me.CONSULTARTOMAFISICA2BindingSource
+        Me.DgvTomaFisica.Location = New System.Drawing.Point(12, 192)
         Me.DgvTomaFisica.Name = "DgvTomaFisica"
         Me.DgvTomaFisica.ReadOnly = True
         Me.DgvTomaFisica.Size = New System.Drawing.Size(713, 445)
         Me.DgvTomaFisica.TabIndex = 2
         Me.ToolTip1.SetToolTip(Me.DgvTomaFisica, "Detalle de la toma física por sección")
         '
-        'FechaDataGridViewTextBoxColumn
+        'CONSULTARTOMAFISICA2BindingSource
         '
-        Me.FechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha"
-        Me.FechaDataGridViewTextBoxColumn.HeaderText = "Fecha"
-        Me.FechaDataGridViewTextBoxColumn.Name = "FechaDataGridViewTextBoxColumn"
-        Me.FechaDataGridViewTextBoxColumn.ReadOnly = True
-        Me.FechaDataGridViewTextBoxColumn.Visible = False
-        '
-        'ObservacionesDataGridViewTextBoxColumn
-        '
-        Me.ObservacionesDataGridViewTextBoxColumn.DataPropertyName = "Observaciones"
-        Me.ObservacionesDataGridViewTextBoxColumn.HeaderText = "Observaciones"
-        Me.ObservacionesDataGridViewTextBoxColumn.Name = "ObservacionesDataGridViewTextBoxColumn"
-        Me.ObservacionesDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ObservacionesDataGridViewTextBoxColumn.Visible = False
-        '
-        'EstatusDataGridViewTextBoxColumn
-        '
-        Me.EstatusDataGridViewTextBoxColumn.DataPropertyName = "Estatus"
-        Me.EstatusDataGridViewTextBoxColumn.HeaderText = "Estatus"
-        Me.EstatusDataGridViewTextBoxColumn.Name = "EstatusDataGridViewTextBoxColumn"
-        Me.EstatusDataGridViewTextBoxColumn.ReadOnly = True
-        Me.EstatusDataGridViewTextBoxColumn.Visible = False
-        '
-        'UsuarioDataGridViewTextBoxColumn
-        '
-        Me.UsuarioDataGridViewTextBoxColumn.DataPropertyName = "Usuario"
-        Me.UsuarioDataGridViewTextBoxColumn.HeaderText = "Usuario"
-        Me.UsuarioDataGridViewTextBoxColumn.Name = "UsuarioDataGridViewTextBoxColumn"
-        Me.UsuarioDataGridViewTextBoxColumn.ReadOnly = True
-        Me.UsuarioDataGridViewTextBoxColumn.Visible = False
-        '
-        'FechaAnulacionDataGridViewTextBoxColumn
-        '
-        Me.FechaAnulacionDataGridViewTextBoxColumn.DataPropertyName = "FechaAnulacion"
-        Me.FechaAnulacionDataGridViewTextBoxColumn.HeaderText = "FechaAnulacion"
-        Me.FechaAnulacionDataGridViewTextBoxColumn.Name = "FechaAnulacionDataGridViewTextBoxColumn"
-        Me.FechaAnulacionDataGridViewTextBoxColumn.ReadOnly = True
-        Me.FechaAnulacionDataGridViewTextBoxColumn.Visible = False
-        '
-        'BodegaDataGridViewTextBoxColumn
-        '
-        Me.BodegaDataGridViewTextBoxColumn.DataPropertyName = "Bodega"
-        Me.BodegaDataGridViewTextBoxColumn.HeaderText = "Bodega"
-        Me.BodegaDataGridViewTextBoxColumn.Name = "BodegaDataGridViewTextBoxColumn"
-        Me.BodegaDataGridViewTextBoxColumn.ReadOnly = True
-        Me.BodegaDataGridViewTextBoxColumn.Visible = False
-        '
-        'DBodegaDataGridViewTextBoxColumn
-        '
-        Me.DBodegaDataGridViewTextBoxColumn.DataPropertyName = "DBodega"
-        Me.DBodegaDataGridViewTextBoxColumn.HeaderText = "DBodega"
-        Me.DBodegaDataGridViewTextBoxColumn.Name = "DBodegaDataGridViewTextBoxColumn"
-        Me.DBodegaDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DBodegaDataGridViewTextBoxColumn.Visible = False
-        '
-        'NumeroDataGridViewTextBoxColumn
-        '
-        Me.NumeroDataGridViewTextBoxColumn.DataPropertyName = "Numero"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.NumeroDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
-        Me.NumeroDataGridViewTextBoxColumn.HeaderText = "Numero"
-        Me.NumeroDataGridViewTextBoxColumn.Name = "NumeroDataGridViewTextBoxColumn"
-        Me.NumeroDataGridViewTextBoxColumn.ReadOnly = True
-        Me.NumeroDataGridViewTextBoxColumn.Width = 50
-        '
-        'ProductoDataGridViewTextBoxColumn
-        '
-        Me.ProductoDataGridViewTextBoxColumn.DataPropertyName = "Producto"
-        Me.ProductoDataGridViewTextBoxColumn.HeaderText = "Producto"
-        Me.ProductoDataGridViewTextBoxColumn.Name = "ProductoDataGridViewTextBoxColumn"
-        Me.ProductoDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ProductoDataGridViewTextBoxColumn.Width = 65
-        '
-        'DescripcionDataGridViewTextBoxColumn
-        '
-        Me.DescripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion"
-        Me.DescripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion"
-        Me.DescripcionDataGridViewTextBoxColumn.Name = "DescripcionDataGridViewTextBoxColumn"
-        Me.DescripcionDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DescripcionDataGridViewTextBoxColumn.Width = 320
-        '
-        'CantidadDataGridViewTextBoxColumn
-        '
-        Me.CantidadDataGridViewTextBoxColumn.DataPropertyName = "Cantidad"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.CantidadDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
-        Me.CantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad"
-        Me.CantidadDataGridViewTextBoxColumn.Name = "CantidadDataGridViewTextBoxColumn"
-        Me.CantidadDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CantidadDataGridViewTextBoxColumn.Width = 65
-        '
-        'PrecioDataGridViewTextBoxColumn
-        '
-        Me.PrecioDataGridViewTextBoxColumn.DataPropertyName = "Precio"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = "0.00"
-        Me.PrecioDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
-        Me.PrecioDataGridViewTextBoxColumn.HeaderText = "Precio"
-        Me.PrecioDataGridViewTextBoxColumn.Name = "PrecioDataGridViewTextBoxColumn"
-        Me.PrecioDataGridViewTextBoxColumn.ReadOnly = True
-        Me.PrecioDataGridViewTextBoxColumn.Width = 75
-        '
-        'PosicionDataGridViewTextBoxColumn
-        '
-        Me.PosicionDataGridViewTextBoxColumn.DataPropertyName = "Posicion"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.PosicionDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
-        Me.PosicionDataGridViewTextBoxColumn.HeaderText = "Posicion"
-        Me.PosicionDataGridViewTextBoxColumn.Name = "PosicionDataGridViewTextBoxColumn"
-        Me.PosicionDataGridViewTextBoxColumn.ReadOnly = True
-        Me.PosicionDataGridViewTextBoxColumn.Width = 75
-        '
-        'CONSULTARTOMAFISICABindingSource
-        '
-        Me.CONSULTARTOMAFISICABindingSource.DataMember = "CONSULTAR TOMA FISICA"
-        Me.CONSULTARTOMAFISICABindingSource.DataSource = Me.VISTAS
+        Me.CONSULTARTOMAFISICA2BindingSource.DataMember = "CONSULTAR TOMA FISICA2"
+        Me.CONSULTARTOMAFISICA2BindingSource.DataSource = Me.VISTAS
         '
         'VISTAS
         '
@@ -276,6 +176,11 @@ Partial Class FrmPrincipal
         Me.TxtCodigoProducto.TabIndex = 1
         Me.ToolTip1.SetToolTip(Me.TxtCodigoProducto, "Presione Enter para confirmar búsqueda")
         '
+        'CONSULTARTOMAFISICABindingSource
+        '
+        Me.CONSULTARTOMAFISICABindingSource.DataMember = "CONSULTAR TOMA FISICA"
+        Me.CONSULTARTOMAFISICABindingSource.DataSource = Me.VISTAS
+        '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 7
@@ -288,23 +193,26 @@ Partial Class FrmPrincipal
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.Controls.Add(Me.Label5, 5, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.BtnReporte, 4, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.CmbBodegas, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.CmbSucursal, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label2, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.TxtNombreAlmacen, 3, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.TxtCodigoAlmacen, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.TxtNumeroToma, 1, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.CmbTomas, 2, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.TxtObservacionesTomaFisica, 3, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.TxtBuscarPosicion, 5, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.BtnBuscarPosicion, 6, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.TxtFechaTomaFisicaReferencia, 4, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.TxtNumeroToma, 1, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.CmbTomas, 2, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.TxtObservacionesTomaFisica, 3, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.TxtBuscarPosicion, 5, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.BtnBuscarPosicion, 6, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.TxtFechaTomaFisicaReferencia, 4, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label6, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.CmbBodega, 2, 1)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(12, 28)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 2
+        Me.TableLayoutPanel1.RowCount = 3
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(713, 64)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(713, 92)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'Label5
@@ -328,23 +236,23 @@ Partial Class FrmPrincipal
         Me.BtnReporte.Text = "Reporte"
         Me.BtnReporte.UseVisualStyleBackColor = True
         '
-        'CmbBodegas
+        'CmbSucursal
         '
-        Me.CmbBodegas.DataSource = Me.BODEGABindingSource
-        Me.CmbBodegas.DisplayMember = "Descripcion"
-        Me.CmbBodegas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CmbBodegas.Enabled = False
-        Me.CmbBodegas.FormattingEnabled = True
-        Me.CmbBodegas.Location = New System.Drawing.Point(110, 3)
-        Me.CmbBodegas.Name = "CmbBodegas"
-        Me.CmbBodegas.Size = New System.Drawing.Size(322, 21)
-        Me.CmbBodegas.TabIndex = 2
-        Me.CmbBodegas.ValueMember = "Codigo"
+        Me.CmbSucursal.DataSource = Me.SUCURSALBindingSource
+        Me.CmbSucursal.DisplayMember = "Descripcion"
+        Me.CmbSucursal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CmbSucursal.Enabled = False
+        Me.CmbSucursal.FormattingEnabled = True
+        Me.CmbSucursal.Location = New System.Drawing.Point(110, 3)
+        Me.CmbSucursal.Name = "CmbSucursal"
+        Me.CmbSucursal.Size = New System.Drawing.Size(322, 21)
+        Me.CmbSucursal.TabIndex = 2
+        Me.CmbSucursal.ValueMember = "Codigo"
         '
-        'BODEGABindingSource
+        'SUCURSALBindingSource
         '
-        Me.BODEGABindingSource.DataMember = "BODEGA"
-        Me.BODEGABindingSource.DataSource = Me.VISTAS
+        Me.SUCURSALBindingSource.DataMember = "SUCURSAL"
+        Me.SUCURSALBindingSource.DataSource = Me.VISTAS
         '
         'Label2
         '
@@ -380,7 +288,7 @@ Partial Class FrmPrincipal
         '
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(3, 42)
+        Me.Label1.Location = New System.Drawing.Point(3, 70)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(54, 13)
         Me.Label1.TabIndex = 5
@@ -389,7 +297,7 @@ Partial Class FrmPrincipal
         'TxtNumeroToma
         '
         Me.TxtNumeroToma.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNumeroToma.Location = New System.Drawing.Point(63, 37)
+        Me.TxtNumeroToma.Location = New System.Drawing.Point(63, 64)
         Me.TxtNumeroToma.Name = "TxtNumeroToma"
         Me.TxtNumeroToma.ReadOnly = True
         Me.TxtNumeroToma.Size = New System.Drawing.Size(41, 23)
@@ -398,25 +306,25 @@ Partial Class FrmPrincipal
         '
         'CmbTomas
         '
-        Me.CmbTomas.DataSource = Me.FISICOMAESTROBindingSource
+        Me.CmbTomas.DataSource = Me.FISICOMAESTRO2BindingSource
         Me.CmbTomas.DisplayMember = "Observaciones"
         Me.CmbTomas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbTomas.FormattingEnabled = True
-        Me.CmbTomas.Location = New System.Drawing.Point(110, 37)
+        Me.CmbTomas.Location = New System.Drawing.Point(110, 64)
         Me.CmbTomas.Name = "CmbTomas"
         Me.CmbTomas.Size = New System.Drawing.Size(322, 21)
         Me.CmbTomas.TabIndex = 7
         Me.CmbTomas.ValueMember = "Numero"
         '
-        'FISICOMAESTROBindingSource
+        'FISICOMAESTRO2BindingSource
         '
-        Me.FISICOMAESTROBindingSource.DataMember = "FISICO MAESTRO"
-        Me.FISICOMAESTROBindingSource.DataSource = Me.VISTAS
+        Me.FISICOMAESTRO2BindingSource.DataMember = "FISICO MAESTRO2"
+        Me.FISICOMAESTRO2BindingSource.DataSource = Me.VISTAS
         '
         'TxtObservacionesTomaFisica
         '
         Me.TxtObservacionesTomaFisica.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtObservacionesTomaFisica.Location = New System.Drawing.Point(438, 37)
+        Me.TxtObservacionesTomaFisica.Location = New System.Drawing.Point(438, 64)
         Me.TxtObservacionesTomaFisica.Name = "TxtObservacionesTomaFisica"
         Me.TxtObservacionesTomaFisica.ReadOnly = True
         Me.TxtObservacionesTomaFisica.Size = New System.Drawing.Size(100, 23)
@@ -425,7 +333,7 @@ Partial Class FrmPrincipal
         '
         'BtnBuscarPosicion
         '
-        Me.BtnBuscarPosicion.Location = New System.Drawing.Point(655, 37)
+        Me.BtnBuscarPosicion.Location = New System.Drawing.Point(655, 64)
         Me.BtnBuscarPosicion.Name = "BtnBuscarPosicion"
         Me.BtnBuscarPosicion.Size = New System.Drawing.Size(34, 23)
         Me.BtnBuscarPosicion.TabIndex = 20
@@ -435,13 +343,51 @@ Partial Class FrmPrincipal
         '
         'TxtFechaTomaFisicaReferencia
         '
-        Me.TxtFechaTomaFisicaReferencia.Location = New System.Drawing.Point(544, 37)
+        Me.TxtFechaTomaFisicaReferencia.Location = New System.Drawing.Point(544, 64)
         Me.TxtFechaTomaFisicaReferencia.Mask = "00/00/0000"
         Me.TxtFechaTomaFisicaReferencia.Name = "TxtFechaTomaFisicaReferencia"
         Me.TxtFechaTomaFisicaReferencia.ReadOnly = True
         Me.TxtFechaTomaFisicaReferencia.Size = New System.Drawing.Size(73, 20)
         Me.TxtFechaTomaFisicaReferencia.TabIndex = 21
         Me.TxtFechaTomaFisicaReferencia.ValidatingType = GetType(Date)
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(3, 41)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(44, 13)
+        Me.Label6.TabIndex = 23
+        Me.Label6.Text = "Bodega"
+        '
+        'CmbBodega
+        '
+        Me.CmbBodega.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.CmbBodega.DataSource = Me.BODEGABindingSource
+        Me.CmbBodega.DisplayMember = "Descripcion"
+        Me.CmbBodega.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CmbBodega.FormattingEnabled = True
+        Me.CmbBodega.Location = New System.Drawing.Point(110, 37)
+        Me.CmbBodega.Name = "CmbBodega"
+        Me.CmbBodega.Size = New System.Drawing.Size(322, 21)
+        Me.CmbBodega.TabIndex = 24
+        Me.CmbBodega.ValueMember = "Codigo"
+        '
+        'BODEGABindingSource
+        '
+        Me.BODEGABindingSource.DataMember = "BODEGA"
+        Me.BODEGABindingSource.DataSource = Me.VISTAS
+        '
+        'FISICOMAESTROBindingSource
+        '
+        Me.FISICOMAESTROBindingSource.DataMember = "FISICO MAESTRO"
+        Me.FISICOMAESTROBindingSource.DataSource = Me.VISTAS
+        '
+        'BODEGAPORSUCURSALBindingSource
+        '
+        Me.BODEGAPORSUCURSALBindingSource.DataMember = "BODEGA POR SUCURSAL"
+        Me.BODEGAPORSUCURSALBindingSource.DataSource = Me.VISTAS
         '
         'FECHASFISICOMAESTROBindingSource
         '
@@ -594,7 +540,7 @@ Partial Class FrmPrincipal
         Me.TlpDatosDetalle.Controls.Add(Me.TxtTop, 5, 1)
         Me.TlpDatosDetalle.Controls.Add(Me.BtnAgregarDetalle, 3, 1)
         Me.TlpDatosDetalle.Controls.Add(Me.Label4, 5, 0)
-        Me.TlpDatosDetalle.Location = New System.Drawing.Point(12, 98)
+        Me.TlpDatosDetalle.Location = New System.Drawing.Point(12, 123)
         Me.TlpDatosDetalle.Name = "TlpDatosDetalle"
         Me.TlpDatosDetalle.RowCount = 2
         Me.TlpDatosDetalle.RowStyles.Add(New System.Windows.Forms.RowStyle())
@@ -697,19 +643,149 @@ Partial Class FrmPrincipal
         '
         Me.CONSULTAR_TOMA_FISICATableAdapter.ClearBeforeFill = True
         '
-        'BODEGATableAdapter
+        'SUCURSALTableAdapter
         '
-        Me.BODEGATableAdapter.ClearBeforeFill = True
+        Me.SUCURSALTableAdapter.ClearBeforeFill = True
         '
         'FECHAS_FISICO_MAESTROTableAdapter
         '
         Me.FECHAS_FISICO_MAESTROTableAdapter.ClearBeforeFill = True
         '
+        'BODEGA_POR_SUCURSALTableAdapter
+        '
+        Me.BODEGA_POR_SUCURSALTableAdapter.ClearBeforeFill = True
+        '
+        'BODEGATableAdapter
+        '
+        Me.BODEGATableAdapter.ClearBeforeFill = True
+        '
+        'FISICO_MAESTRO2TableAdapter
+        '
+        Me.FISICO_MAESTRO2TableAdapter.ClearBeforeFill = True
+        '
+        'CONSULTAR_TOMA_FISICA2TableAdapter
+        '
+        Me.CONSULTAR_TOMA_FISICA2TableAdapter.ClearBeforeFill = True
+        '
+        'FechaDataGridViewTextBoxColumn
+        '
+        Me.FechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha"
+        Me.FechaDataGridViewTextBoxColumn.HeaderText = "Fecha"
+        Me.FechaDataGridViewTextBoxColumn.Name = "FechaDataGridViewTextBoxColumn"
+        Me.FechaDataGridViewTextBoxColumn.ReadOnly = True
+        Me.FechaDataGridViewTextBoxColumn.Visible = False
+        '
+        'ObservacionesDataGridViewTextBoxColumn
+        '
+        Me.ObservacionesDataGridViewTextBoxColumn.DataPropertyName = "Observaciones"
+        Me.ObservacionesDataGridViewTextBoxColumn.HeaderText = "Observaciones"
+        Me.ObservacionesDataGridViewTextBoxColumn.Name = "ObservacionesDataGridViewTextBoxColumn"
+        Me.ObservacionesDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ObservacionesDataGridViewTextBoxColumn.Visible = False
+        '
+        'EstatusDataGridViewTextBoxColumn
+        '
+        Me.EstatusDataGridViewTextBoxColumn.DataPropertyName = "Estatus"
+        Me.EstatusDataGridViewTextBoxColumn.HeaderText = "Estatus"
+        Me.EstatusDataGridViewTextBoxColumn.Name = "EstatusDataGridViewTextBoxColumn"
+        Me.EstatusDataGridViewTextBoxColumn.ReadOnly = True
+        Me.EstatusDataGridViewTextBoxColumn.Visible = False
+        '
+        'UsuarioDataGridViewTextBoxColumn
+        '
+        Me.UsuarioDataGridViewTextBoxColumn.DataPropertyName = "Usuario"
+        Me.UsuarioDataGridViewTextBoxColumn.HeaderText = "Usuario"
+        Me.UsuarioDataGridViewTextBoxColumn.Name = "UsuarioDataGridViewTextBoxColumn"
+        Me.UsuarioDataGridViewTextBoxColumn.ReadOnly = True
+        Me.UsuarioDataGridViewTextBoxColumn.Visible = False
+        '
+        'FechaAnulacionDataGridViewTextBoxColumn
+        '
+        Me.FechaAnulacionDataGridViewTextBoxColumn.DataPropertyName = "FechaAnulacion"
+        Me.FechaAnulacionDataGridViewTextBoxColumn.HeaderText = "FechaAnulacion"
+        Me.FechaAnulacionDataGridViewTextBoxColumn.Name = "FechaAnulacionDataGridViewTextBoxColumn"
+        Me.FechaAnulacionDataGridViewTextBoxColumn.ReadOnly = True
+        Me.FechaAnulacionDataGridViewTextBoxColumn.Visible = False
+        '
+        'BodegaDataGridViewTextBoxColumn
+        '
+        Me.BodegaDataGridViewTextBoxColumn.DataPropertyName = "Bodega"
+        Me.BodegaDataGridViewTextBoxColumn.HeaderText = "Bodega"
+        Me.BodegaDataGridViewTextBoxColumn.Name = "BodegaDataGridViewTextBoxColumn"
+        Me.BodegaDataGridViewTextBoxColumn.ReadOnly = True
+        Me.BodegaDataGridViewTextBoxColumn.Visible = False
+        '
+        'DBodegaDataGridViewTextBoxColumn
+        '
+        Me.DBodegaDataGridViewTextBoxColumn.DataPropertyName = "DBodega"
+        Me.DBodegaDataGridViewTextBoxColumn.HeaderText = "DBodega"
+        Me.DBodegaDataGridViewTextBoxColumn.Name = "DBodegaDataGridViewTextBoxColumn"
+        Me.DBodegaDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DBodegaDataGridViewTextBoxColumn.Visible = False
+        '
+        'NumeroDataGridViewTextBoxColumn
+        '
+        Me.NumeroDataGridViewTextBoxColumn.DataPropertyName = "Numero"
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.NumeroDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
+        Me.NumeroDataGridViewTextBoxColumn.HeaderText = "Numero"
+        Me.NumeroDataGridViewTextBoxColumn.Name = "NumeroDataGridViewTextBoxColumn"
+        Me.NumeroDataGridViewTextBoxColumn.ReadOnly = True
+        Me.NumeroDataGridViewTextBoxColumn.Width = 50
+        '
+        'ProductoDataGridViewTextBoxColumn
+        '
+        Me.ProductoDataGridViewTextBoxColumn.DataPropertyName = "Producto"
+        Me.ProductoDataGridViewTextBoxColumn.HeaderText = "Producto"
+        Me.ProductoDataGridViewTextBoxColumn.Name = "ProductoDataGridViewTextBoxColumn"
+        Me.ProductoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ProductoDataGridViewTextBoxColumn.Width = 65
+        '
+        'DescripcionDataGridViewTextBoxColumn
+        '
+        Me.DescripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion"
+        Me.DescripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion"
+        Me.DescripcionDataGridViewTextBoxColumn.Name = "DescripcionDataGridViewTextBoxColumn"
+        Me.DescripcionDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DescripcionDataGridViewTextBoxColumn.Width = 320
+        '
+        'CantidadDataGridViewTextBoxColumn
+        '
+        Me.CantidadDataGridViewTextBoxColumn.DataPropertyName = "Cantidad"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.CantidadDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
+        Me.CantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad"
+        Me.CantidadDataGridViewTextBoxColumn.Name = "CantidadDataGridViewTextBoxColumn"
+        Me.CantidadDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CantidadDataGridViewTextBoxColumn.Width = 65
+        '
+        'PrecioDataGridViewTextBoxColumn
+        '
+        Me.PrecioDataGridViewTextBoxColumn.DataPropertyName = "Precio"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = "0.00"
+        Me.PrecioDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
+        Me.PrecioDataGridViewTextBoxColumn.HeaderText = "Precio"
+        Me.PrecioDataGridViewTextBoxColumn.Name = "PrecioDataGridViewTextBoxColumn"
+        Me.PrecioDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PrecioDataGridViewTextBoxColumn.Width = 75
+        '
+        'PosicionDataGridViewTextBoxColumn
+        '
+        Me.PosicionDataGridViewTextBoxColumn.DataPropertyName = "Posicion"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.PosicionDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
+        Me.PosicionDataGridViewTextBoxColumn.HeaderText = "Posicion"
+        Me.PosicionDataGridViewTextBoxColumn.Name = "PosicionDataGridViewTextBoxColumn"
+        Me.PosicionDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PosicionDataGridViewTextBoxColumn.Width = 75
+        '
         'FrmPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(762, 645)
+        Me.ClientSize = New System.Drawing.Size(762, 657)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox1)
@@ -725,12 +801,16 @@ Partial Class FrmPrincipal
         Me.Name = "FrmPrincipal"
         Me.Text = "Toma Física"
         CType(Me.DgvTomaFisica, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CONSULTARTOMAFISICABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONSULTARTOMAFISICA2BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VISTAS, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CONSULTARTOMAFISICABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        CType(Me.SUCURSALBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FISICOMAESTRO2BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BODEGABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FISICOMAESTROBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BODEGAPORSUCURSALBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHASFISICOMAESTROBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStripPrincipal.ResumeLayout(False)
         Me.MenuStripPrincipal.PerformLayout()
@@ -752,7 +832,7 @@ Partial Class FrmPrincipal
     Friend WithEvents BtnReporte As Button
     Friend WithEvents TxtObservacionesTomaFisica As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents CmbBodegas As ComboBox
+    Friend WithEvents CmbSucursal As ComboBox
     Friend WithEvents CmbTomas As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents TxtNombreAlmacen As TextBox
@@ -789,8 +869,23 @@ Partial Class FrmPrincipal
     Friend WithEvents FISICO_MAESTROTableAdapter As VISTASTableAdapters.FISICO_MAESTROTableAdapter
     Friend WithEvents CONSULTARTOMAFISICABindingSource As BindingSource
     Friend WithEvents CONSULTAR_TOMA_FISICATableAdapter As VISTASTableAdapters.CONSULTAR_TOMA_FISICATableAdapter
+    Friend WithEvents SUCURSALBindingSource As BindingSource
+    Friend WithEvents SUCURSALTableAdapter As VISTASTableAdapters.SUCURSALTableAdapter
+    Friend WithEvents FECHASFISICOMAESTROBindingSource As BindingSource
+    Friend WithEvents FECHAS_FISICO_MAESTROTableAdapter As VISTASTableAdapters.FECHAS_FISICO_MAESTROTableAdapter
+    Friend WithEvents TxtFechaTomaFisicaReferencia As MaskedTextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents CmbBodega As ComboBox
+    Friend WithEvents BODEGAPORSUCURSALBindingSource As BindingSource
+    Friend WithEvents BODEGA_POR_SUCURSALTableAdapter As VISTASTableAdapters.BODEGA_POR_SUCURSALTableAdapter
     Friend WithEvents BODEGABindingSource As BindingSource
     Friend WithEvents BODEGATableAdapter As VISTASTableAdapters.BODEGATableAdapter
+    Friend WithEvents FISICOMAESTRO2BindingSource As BindingSource
+    Friend WithEvents FISICO_MAESTRO2TableAdapter As VISTASTableAdapters.FISICO_MAESTRO2TableAdapter
+    Friend WithEvents CONSULTARTOMAFISICA2BindingSource As BindingSource
+    Friend WithEvents CONSULTAR_TOMA_FISICA2TableAdapter As VISTASTableAdapters.CONSULTAR_TOMA_FISICA2TableAdapter
     Friend WithEvents FechaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ObservacionesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EstatusDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -804,9 +899,4 @@ Partial Class FrmPrincipal
     Friend WithEvents CantidadDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PrecioDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PosicionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents FECHASFISICOMAESTROBindingSource As BindingSource
-    Friend WithEvents FECHAS_FISICO_MAESTROTableAdapter As VISTASTableAdapters.FECHAS_FISICO_MAESTROTableAdapter
-    Friend WithEvents TxtFechaTomaFisicaReferencia As MaskedTextBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
 End Class

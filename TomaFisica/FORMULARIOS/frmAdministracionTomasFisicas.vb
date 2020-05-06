@@ -3,7 +3,7 @@
     Private Sub FrmAdministracionTomasFisicas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             Cls_FuncionesPrincipales.DevolverVersion(Me)
-            Me.BODEGATableAdapter.Fill(Me.VISTAS.BODEGA, g_empresa)
+            Me.BODEGATableAdapter.Fill(Me.VISTAS.SUCURSAL, g_empresa)
             Me.USUARIOTableAdapter.Fill(Me.VISTAS.USUARIO)
             CmbSucursal.SelectedIndex = 0
             Me.DgvTomasFisicas.ContextMenuStrip = Me.menucontextoDGV
