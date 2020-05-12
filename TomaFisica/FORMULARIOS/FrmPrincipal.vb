@@ -237,5 +237,13 @@
 
     End Sub
 
-
+    Private Sub EnviarATomaVencidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnviarATomaVencidosToolStripMenuItem.Click
+        If DgvTomaFisica.Rows.Count > 0 Then
+            Dim fila As DataGridViewRow = DgvTomaFisica.CurrentRow
+            If Cls_Data.CrudTomaFisicaDetalle(CInt(fila.Cells(7).Value), fila.Cells(8).Value, 1, g_empresa, CInt(fila.Cells(10).Value), CInt(CmbSucursal.SelectedValue), 4, CInt(fila.Cells(12).Value), g_fechaTomaFisica, CInt(CmbBodega.SelectedValue)) Then
+                CargarDatosFisicoDetalle(CInt(CmbTomas.SelectedValue), g_usuario, CInt(CmbSucursal.SelectedValue), TxtTop.Value, CInt(CmbBodega.SelectedValue))
+                Me.TxtCodigoProducto.Focus()
+            End If
+        End If
+    End Sub
 End Class

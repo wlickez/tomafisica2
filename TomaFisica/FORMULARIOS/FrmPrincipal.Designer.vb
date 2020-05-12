@@ -30,6 +30,19 @@ Partial Class FrmPrincipal
         Me.TxtBuscarPosicion = New System.Windows.Forms.TextBox()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.DgvTomaFisica = New System.Windows.Forms.DataGridView()
+        Me.FechaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ObservacionesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EstatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UsuarioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaAnulacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BodegaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DBodegaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumeroDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CantidadDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrecioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PosicionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CONSULTARTOMAFISICA2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VISTAS = New TomaFisica.VISTAS()
         Me.BtnAgregar = New System.Windows.Forms.Button()
@@ -82,6 +95,7 @@ Partial Class FrmPrincipal
         Me.menucontextoDGV = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EnviarATomaVencidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FISICO_MAESTROTableAdapter = New TomaFisica.VISTASTableAdapters.FISICO_MAESTROTableAdapter()
         Me.CONSULTAR_TOMA_FISICATableAdapter = New TomaFisica.VISTASTableAdapters.CONSULTAR_TOMA_FISICATableAdapter()
         Me.SUCURSALTableAdapter = New TomaFisica.VISTASTableAdapters.SUCURSALTableAdapter()
@@ -90,19 +104,6 @@ Partial Class FrmPrincipal
         Me.BODEGATableAdapter = New TomaFisica.VISTASTableAdapters.BODEGATableAdapter()
         Me.FISICO_MAESTRO2TableAdapter = New TomaFisica.VISTASTableAdapters.FISICO_MAESTRO2TableAdapter()
         Me.CONSULTAR_TOMA_FISICA2TableAdapter = New TomaFisica.VISTASTableAdapters.CONSULTAR_TOMA_FISICA2TableAdapter()
-        Me.FechaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ObservacionesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EstatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UsuarioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaAnulacionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BodegaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DBodegaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NumeroDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CantidadDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrecioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PosicionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DgvTomaFisica, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONSULTARTOMAFISICA2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VISTAS, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,7 +127,6 @@ Partial Class FrmPrincipal
         Me.TxtBuscarPosicion.Name = "TxtBuscarPosicion"
         Me.TxtBuscarPosicion.Size = New System.Drawing.Size(26, 20)
         Me.TxtBuscarPosicion.TabIndex = 18
-        Me.TxtBuscarPosicion.Visible = False
         '
         'DgvTomaFisica
         '
@@ -144,6 +144,120 @@ Partial Class FrmPrincipal
         Me.DgvTomaFisica.Size = New System.Drawing.Size(713, 445)
         Me.DgvTomaFisica.TabIndex = 2
         Me.ToolTip1.SetToolTip(Me.DgvTomaFisica, "Detalle de la toma física por sección")
+        '
+        'FechaDataGridViewTextBoxColumn
+        '
+        Me.FechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha"
+        Me.FechaDataGridViewTextBoxColumn.HeaderText = "Fecha"
+        Me.FechaDataGridViewTextBoxColumn.Name = "FechaDataGridViewTextBoxColumn"
+        Me.FechaDataGridViewTextBoxColumn.ReadOnly = True
+        Me.FechaDataGridViewTextBoxColumn.Visible = False
+        '
+        'ObservacionesDataGridViewTextBoxColumn
+        '
+        Me.ObservacionesDataGridViewTextBoxColumn.DataPropertyName = "Observaciones"
+        Me.ObservacionesDataGridViewTextBoxColumn.HeaderText = "Observaciones"
+        Me.ObservacionesDataGridViewTextBoxColumn.Name = "ObservacionesDataGridViewTextBoxColumn"
+        Me.ObservacionesDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ObservacionesDataGridViewTextBoxColumn.Visible = False
+        '
+        'EstatusDataGridViewTextBoxColumn
+        '
+        Me.EstatusDataGridViewTextBoxColumn.DataPropertyName = "Estatus"
+        Me.EstatusDataGridViewTextBoxColumn.HeaderText = "Estatus"
+        Me.EstatusDataGridViewTextBoxColumn.Name = "EstatusDataGridViewTextBoxColumn"
+        Me.EstatusDataGridViewTextBoxColumn.ReadOnly = True
+        Me.EstatusDataGridViewTextBoxColumn.Visible = False
+        '
+        'UsuarioDataGridViewTextBoxColumn
+        '
+        Me.UsuarioDataGridViewTextBoxColumn.DataPropertyName = "Usuario"
+        Me.UsuarioDataGridViewTextBoxColumn.HeaderText = "Usuario"
+        Me.UsuarioDataGridViewTextBoxColumn.Name = "UsuarioDataGridViewTextBoxColumn"
+        Me.UsuarioDataGridViewTextBoxColumn.ReadOnly = True
+        Me.UsuarioDataGridViewTextBoxColumn.Visible = False
+        '
+        'FechaAnulacionDataGridViewTextBoxColumn
+        '
+        Me.FechaAnulacionDataGridViewTextBoxColumn.DataPropertyName = "FechaAnulacion"
+        Me.FechaAnulacionDataGridViewTextBoxColumn.HeaderText = "FechaAnulacion"
+        Me.FechaAnulacionDataGridViewTextBoxColumn.Name = "FechaAnulacionDataGridViewTextBoxColumn"
+        Me.FechaAnulacionDataGridViewTextBoxColumn.ReadOnly = True
+        Me.FechaAnulacionDataGridViewTextBoxColumn.Visible = False
+        '
+        'BodegaDataGridViewTextBoxColumn
+        '
+        Me.BodegaDataGridViewTextBoxColumn.DataPropertyName = "Bodega"
+        Me.BodegaDataGridViewTextBoxColumn.HeaderText = "Bodega"
+        Me.BodegaDataGridViewTextBoxColumn.Name = "BodegaDataGridViewTextBoxColumn"
+        Me.BodegaDataGridViewTextBoxColumn.ReadOnly = True
+        Me.BodegaDataGridViewTextBoxColumn.Visible = False
+        '
+        'DBodegaDataGridViewTextBoxColumn
+        '
+        Me.DBodegaDataGridViewTextBoxColumn.DataPropertyName = "DBodega"
+        Me.DBodegaDataGridViewTextBoxColumn.HeaderText = "DBodega"
+        Me.DBodegaDataGridViewTextBoxColumn.Name = "DBodegaDataGridViewTextBoxColumn"
+        Me.DBodegaDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DBodegaDataGridViewTextBoxColumn.Visible = False
+        '
+        'NumeroDataGridViewTextBoxColumn
+        '
+        Me.NumeroDataGridViewTextBoxColumn.DataPropertyName = "Numero"
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.NumeroDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
+        Me.NumeroDataGridViewTextBoxColumn.HeaderText = "Numero"
+        Me.NumeroDataGridViewTextBoxColumn.Name = "NumeroDataGridViewTextBoxColumn"
+        Me.NumeroDataGridViewTextBoxColumn.ReadOnly = True
+        Me.NumeroDataGridViewTextBoxColumn.Width = 50
+        '
+        'ProductoDataGridViewTextBoxColumn
+        '
+        Me.ProductoDataGridViewTextBoxColumn.DataPropertyName = "Producto"
+        Me.ProductoDataGridViewTextBoxColumn.HeaderText = "Producto"
+        Me.ProductoDataGridViewTextBoxColumn.Name = "ProductoDataGridViewTextBoxColumn"
+        Me.ProductoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ProductoDataGridViewTextBoxColumn.Width = 65
+        '
+        'DescripcionDataGridViewTextBoxColumn
+        '
+        Me.DescripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion"
+        Me.DescripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion"
+        Me.DescripcionDataGridViewTextBoxColumn.Name = "DescripcionDataGridViewTextBoxColumn"
+        Me.DescripcionDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DescripcionDataGridViewTextBoxColumn.Width = 320
+        '
+        'CantidadDataGridViewTextBoxColumn
+        '
+        Me.CantidadDataGridViewTextBoxColumn.DataPropertyName = "Cantidad"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.CantidadDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
+        Me.CantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad"
+        Me.CantidadDataGridViewTextBoxColumn.Name = "CantidadDataGridViewTextBoxColumn"
+        Me.CantidadDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CantidadDataGridViewTextBoxColumn.Width = 65
+        '
+        'PrecioDataGridViewTextBoxColumn
+        '
+        Me.PrecioDataGridViewTextBoxColumn.DataPropertyName = "Precio"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = "0.00"
+        Me.PrecioDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
+        Me.PrecioDataGridViewTextBoxColumn.HeaderText = "Precio"
+        Me.PrecioDataGridViewTextBoxColumn.Name = "PrecioDataGridViewTextBoxColumn"
+        Me.PrecioDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PrecioDataGridViewTextBoxColumn.Width = 75
+        '
+        'PosicionDataGridViewTextBoxColumn
+        '
+        Me.PosicionDataGridViewTextBoxColumn.DataPropertyName = "Posicion"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.PosicionDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
+        Me.PosicionDataGridViewTextBoxColumn.HeaderText = "Posicion"
+        Me.PosicionDataGridViewTextBoxColumn.Name = "PosicionDataGridViewTextBoxColumn"
+        Me.PosicionDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PosicionDataGridViewTextBoxColumn.Width = 75
         '
         'CONSULTARTOMAFISICA2BindingSource
         '
@@ -339,7 +453,6 @@ Partial Class FrmPrincipal
         Me.BtnBuscarPosicion.TabIndex = 20
         Me.BtnBuscarPosicion.Text = "Ir"
         Me.BtnBuscarPosicion.UseVisualStyleBackColor = True
-        Me.BtnBuscarPosicion.Visible = False
         '
         'TxtFechaTomaFisicaReferencia
         '
@@ -619,21 +732,27 @@ Partial Class FrmPrincipal
         '
         'menucontextoDGV
         '
-        Me.menucontextoDGV.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditarToolStripMenuItem, Me.EliminarToolStripMenuItem})
+        Me.menucontextoDGV.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditarToolStripMenuItem, Me.EliminarToolStripMenuItem, Me.EnviarATomaVencidosToolStripMenuItem})
         Me.menucontextoDGV.Name = "ContextMenuStrip1"
-        Me.menucontextoDGV.Size = New System.Drawing.Size(118, 48)
+        Me.menucontextoDGV.Size = New System.Drawing.Size(198, 70)
         '
         'EditarToolStripMenuItem
         '
         Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
-        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
         Me.EditarToolStripMenuItem.Text = "Editar"
         '
         'EliminarToolStripMenuItem
         '
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
+        '
+        'EnviarATomaVencidosToolStripMenuItem
+        '
+        Me.EnviarATomaVencidosToolStripMenuItem.Name = "EnviarATomaVencidosToolStripMenuItem"
+        Me.EnviarATomaVencidosToolStripMenuItem.Size = New System.Drawing.Size(197, 22)
+        Me.EnviarATomaVencidosToolStripMenuItem.Text = "Enviar a Toma Vencidos"
         '
         'FISICO_MAESTROTableAdapter
         '
@@ -666,120 +785,6 @@ Partial Class FrmPrincipal
         'CONSULTAR_TOMA_FISICA2TableAdapter
         '
         Me.CONSULTAR_TOMA_FISICA2TableAdapter.ClearBeforeFill = True
-        '
-        'FechaDataGridViewTextBoxColumn
-        '
-        Me.FechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha"
-        Me.FechaDataGridViewTextBoxColumn.HeaderText = "Fecha"
-        Me.FechaDataGridViewTextBoxColumn.Name = "FechaDataGridViewTextBoxColumn"
-        Me.FechaDataGridViewTextBoxColumn.ReadOnly = True
-        Me.FechaDataGridViewTextBoxColumn.Visible = False
-        '
-        'ObservacionesDataGridViewTextBoxColumn
-        '
-        Me.ObservacionesDataGridViewTextBoxColumn.DataPropertyName = "Observaciones"
-        Me.ObservacionesDataGridViewTextBoxColumn.HeaderText = "Observaciones"
-        Me.ObservacionesDataGridViewTextBoxColumn.Name = "ObservacionesDataGridViewTextBoxColumn"
-        Me.ObservacionesDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ObservacionesDataGridViewTextBoxColumn.Visible = False
-        '
-        'EstatusDataGridViewTextBoxColumn
-        '
-        Me.EstatusDataGridViewTextBoxColumn.DataPropertyName = "Estatus"
-        Me.EstatusDataGridViewTextBoxColumn.HeaderText = "Estatus"
-        Me.EstatusDataGridViewTextBoxColumn.Name = "EstatusDataGridViewTextBoxColumn"
-        Me.EstatusDataGridViewTextBoxColumn.ReadOnly = True
-        Me.EstatusDataGridViewTextBoxColumn.Visible = False
-        '
-        'UsuarioDataGridViewTextBoxColumn
-        '
-        Me.UsuarioDataGridViewTextBoxColumn.DataPropertyName = "Usuario"
-        Me.UsuarioDataGridViewTextBoxColumn.HeaderText = "Usuario"
-        Me.UsuarioDataGridViewTextBoxColumn.Name = "UsuarioDataGridViewTextBoxColumn"
-        Me.UsuarioDataGridViewTextBoxColumn.ReadOnly = True
-        Me.UsuarioDataGridViewTextBoxColumn.Visible = False
-        '
-        'FechaAnulacionDataGridViewTextBoxColumn
-        '
-        Me.FechaAnulacionDataGridViewTextBoxColumn.DataPropertyName = "FechaAnulacion"
-        Me.FechaAnulacionDataGridViewTextBoxColumn.HeaderText = "FechaAnulacion"
-        Me.FechaAnulacionDataGridViewTextBoxColumn.Name = "FechaAnulacionDataGridViewTextBoxColumn"
-        Me.FechaAnulacionDataGridViewTextBoxColumn.ReadOnly = True
-        Me.FechaAnulacionDataGridViewTextBoxColumn.Visible = False
-        '
-        'BodegaDataGridViewTextBoxColumn
-        '
-        Me.BodegaDataGridViewTextBoxColumn.DataPropertyName = "Bodega"
-        Me.BodegaDataGridViewTextBoxColumn.HeaderText = "Bodega"
-        Me.BodegaDataGridViewTextBoxColumn.Name = "BodegaDataGridViewTextBoxColumn"
-        Me.BodegaDataGridViewTextBoxColumn.ReadOnly = True
-        Me.BodegaDataGridViewTextBoxColumn.Visible = False
-        '
-        'DBodegaDataGridViewTextBoxColumn
-        '
-        Me.DBodegaDataGridViewTextBoxColumn.DataPropertyName = "DBodega"
-        Me.DBodegaDataGridViewTextBoxColumn.HeaderText = "DBodega"
-        Me.DBodegaDataGridViewTextBoxColumn.Name = "DBodegaDataGridViewTextBoxColumn"
-        Me.DBodegaDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DBodegaDataGridViewTextBoxColumn.Visible = False
-        '
-        'NumeroDataGridViewTextBoxColumn
-        '
-        Me.NumeroDataGridViewTextBoxColumn.DataPropertyName = "Numero"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.NumeroDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle1
-        Me.NumeroDataGridViewTextBoxColumn.HeaderText = "Numero"
-        Me.NumeroDataGridViewTextBoxColumn.Name = "NumeroDataGridViewTextBoxColumn"
-        Me.NumeroDataGridViewTextBoxColumn.ReadOnly = True
-        Me.NumeroDataGridViewTextBoxColumn.Width = 50
-        '
-        'ProductoDataGridViewTextBoxColumn
-        '
-        Me.ProductoDataGridViewTextBoxColumn.DataPropertyName = "Producto"
-        Me.ProductoDataGridViewTextBoxColumn.HeaderText = "Producto"
-        Me.ProductoDataGridViewTextBoxColumn.Name = "ProductoDataGridViewTextBoxColumn"
-        Me.ProductoDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ProductoDataGridViewTextBoxColumn.Width = 65
-        '
-        'DescripcionDataGridViewTextBoxColumn
-        '
-        Me.DescripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion"
-        Me.DescripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion"
-        Me.DescripcionDataGridViewTextBoxColumn.Name = "DescripcionDataGridViewTextBoxColumn"
-        Me.DescripcionDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DescripcionDataGridViewTextBoxColumn.Width = 320
-        '
-        'CantidadDataGridViewTextBoxColumn
-        '
-        Me.CantidadDataGridViewTextBoxColumn.DataPropertyName = "Cantidad"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.CantidadDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
-        Me.CantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad"
-        Me.CantidadDataGridViewTextBoxColumn.Name = "CantidadDataGridViewTextBoxColumn"
-        Me.CantidadDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CantidadDataGridViewTextBoxColumn.Width = 65
-        '
-        'PrecioDataGridViewTextBoxColumn
-        '
-        Me.PrecioDataGridViewTextBoxColumn.DataPropertyName = "Precio"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = "0.00"
-        Me.PrecioDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
-        Me.PrecioDataGridViewTextBoxColumn.HeaderText = "Precio"
-        Me.PrecioDataGridViewTextBoxColumn.Name = "PrecioDataGridViewTextBoxColumn"
-        Me.PrecioDataGridViewTextBoxColumn.ReadOnly = True
-        Me.PrecioDataGridViewTextBoxColumn.Width = 75
-        '
-        'PosicionDataGridViewTextBoxColumn
-        '
-        Me.PosicionDataGridViewTextBoxColumn.DataPropertyName = "Posicion"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.PosicionDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
-        Me.PosicionDataGridViewTextBoxColumn.HeaderText = "Posicion"
-        Me.PosicionDataGridViewTextBoxColumn.Name = "PosicionDataGridViewTextBoxColumn"
-        Me.PosicionDataGridViewTextBoxColumn.ReadOnly = True
-        Me.PosicionDataGridViewTextBoxColumn.Width = 75
         '
         'FrmPrincipal
         '
@@ -899,4 +904,5 @@ Partial Class FrmPrincipal
     Friend WithEvents CantidadDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PrecioDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PosicionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents EnviarATomaVencidosToolStripMenuItem As ToolStripMenuItem
 End Class
